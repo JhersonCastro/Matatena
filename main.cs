@@ -7,6 +7,15 @@ namespace Matatena
 
         static void Main(string[] args)
         {
+            for (double y = 1.5; y > -1.5; y -= 0.1)
+        {
+            for (double x = -1.5; x < 1.5; x += 0.05)
+            {
+                double a = x * x + y * y - 1;
+                Console.Write(a * a * a - x * x * y * y * y <= 0.0 ? "*" : " ");
+            }
+            Console.WriteLine();
+        }
             Random die = new Random();
             int CurrentNumber = 0;
             Player player1 = new Player();
@@ -17,25 +26,7 @@ namespace Matatena
             Console.WriteLine("Tell me your name, player 2");
             player2.NickName = Console.ReadLine();
             
-            player1.Board[0, 0] = 5;
-            player1.Board[0, 1] = 2;
-            player1.Board[0, 2] = 8;
-            player1.Board[1, 0] = 2;
-            player1.Board[1, 1] = 1;
-            player1.Board[1, 2] = 6;
-            player1.Board[2, 0] = 6;
-            player1.Board[2, 1] = 9;
-            player1.Board[2, 2] = 5;
-
-            player2.Board[0, 0] = 4;
-            player2.Board[0, 1] = 8;
-            player2.Board[0, 2] = 3;
-            player2.Board[1, 0] = 2;
-            player2.Board[1, 1] = 4;
-            player2.Board[1, 2] = 7;
-            player2.Board[2, 0] = 5;
-            player2.Board[2, 1] = 2;
-            player2.Board[2, 2] = 5;
+            
             Styles.PrintBoard(player1.Board);
             System.Console.WriteLine("============================================");
             Styles.PrintBoard(player2.Board);
@@ -45,15 +36,22 @@ namespace Matatena
             Styles.PrintBoard(player1.Board);
             System.Console.WriteLine("============================================");
             Styles.PrintBoard(player2.Board);
-            /*do
+            do
             {
+                mechanics.isAPosibleAttack(player2, player1);
+                mechanics.isAPosibleAttack(player1, player2);
+                mechanics.isAPosibleAttack(player2, player1);
+                mechanics.isAPosibleAttack(player1, player2);
+                if (player1.isFull() || player2.isFull())
+                    break;
+                
                 Console.WriteLine(player1.NickName + " Turn!");
                 CurrentNumber = die.Next(1,6);
                 Console.WriteLine(player1.NickName + " has rolled a value of " + CurrentNumber + " on the dice!");
                 Styles.PrintBoard(player1.Board);
                 mechanics.SetPositionOnTheBoard(player1, CurrentNumber);
                 Styles.PrintBoard(player1.Board);
-
+    
                 System.Threading.Thread.Sleep(5000);
                 Console.Clear();
 
@@ -73,9 +71,11 @@ namespace Matatena
             else if(player1.Score()<player2.Score())
                 Console.WriteLine(player2.NickName + " es el ganador.");
             else
-                Console.WriteLine("¡EMPATE!");*/
+                Console.WriteLine("¡EMPATE!");
         }
     }
 }
 
 
+Daniela, se que te molesta que no te haya dado verga por 2 años, pero parametros
+:;D y arregla mi codigo mujer

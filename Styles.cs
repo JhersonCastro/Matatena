@@ -4,15 +4,27 @@ namespace Matatena
 
     public class Styles
     {
-        public static double GetNumber(string label, int min, int max){
-            double rtn;
+        public static double GetNumber(string label, int min, int max)
+        {
+            double rtn = 0.0;
             Console.WriteLine(label);
-            rtn = double.Parse(Console.ReadLine());
-            while (rtn<min || rtn>max)
+            do
             {
-                Console.WriteLine("¡Quedate en los limites!, min:" +min+" max:"+max);
-                rtn = double.Parse(Console.ReadLine());
-            }
+                while (true)
+                {
+                    try
+                    {
+                        Console.WriteLine("¡Quedate en los limites!, min:" + min + " max:" + max);
+                        rtn = double.Parse(Console.ReadLine());
+                        break;
+                    }
+                    catch
+                    {
+                        Console.WriteLine("Es un número, imbecil:3");
+                    }
+                }
+            } while (rtn < min || rtn > max);
+
             return rtn;
         }
         public static void PrintBoard(int[,] Board)

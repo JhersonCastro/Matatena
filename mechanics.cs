@@ -51,18 +51,18 @@ namespace Matatena
             {
                 for (int j = 0; j < arrEnemy1.Length; j++)
                 {
-                    if (arrAttaker1[i] == arrEnemy1[j])
+                    if (arrAttaker1[i] == arrEnemy1[j] && arrEnemy1[j] != 0)
                     {
                         Enemy.Board[i, 0] = 0;
                         Console.WriteLine("El valor " + arrAttaker1[i] + " se repite en las posiciones " + i + " y " + j);
                     }
 
-                    if (arrAttaker2[i] == arrEnemy2[j])
+                    if (arrAttaker2[i] == arrEnemy2[j] && arrEnemy2[j] != 0)
                     {
                         Enemy.Board[(i), 1] = 0;
                         Console.WriteLine("El valor " + arrAttaker2[i] + " se repite en las posiciones " + i + " y " + j);
                     }
-                    if (arrAttaker3[i] == arrEnemy3[j])
+                    if (arrAttaker3[i] == arrEnemy3[j] && arrEnemy3[j] != 0)
                     {
                         Enemy.Board[(i), 2] = 0;
                         Console.WriteLine("El valor " + arrAttaker3[i] + " se repite en las posiciones " + i + " y " + j);
@@ -72,23 +72,5 @@ namespace Matatena
 
         }
 
-
-        /*public static void isAPosibleAttack(Player Attacker, Player Enemy){
-
-            for (int i = 0; i < Attacker.Board.GetLength(1); i++)
-            {
-                for (int j = 0; j < Attacker.Board.GetLength(1); j++)
-                {
-                    for (int h = 0; h < Attacker.Board.GetLength(1); h++)
-                    {
-                        if (Attacker.Board[i, j] == Enemy.Board[h,j])
-                        {
-                            System.Console.WriteLine("Se encontro un ataque de valor  " + Attacker.Board[i, j] + "=" + Enemy.Board[j,h] + "en la posicion del atacante x:"+ i + ";y:" + j + " Y del atacado en x:" + j+ ";y:"+ h);
-                            Enemy.Board[h,j] = 0;
-                        }
-                    }
-                }
-            }
-        }*/
     }
 }
