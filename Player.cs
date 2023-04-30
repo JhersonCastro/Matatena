@@ -12,37 +12,23 @@ namespace Matatena
             int c, f, hasEmpty = 0;
             do
             {
-                System.Console.WriteLine("Dime en que columna quieres posicionar 1, 2, 3");
-                c = int.Parse(System.Console.ReadLine());
-                while (c<1 || c>3)
-                {
-                    System.Console.WriteLine("Escribe un número entero del 1 al 3 (1, 2, 3)");
-                    c = int.Parse(System.Console.ReadLine());
-                }
-                c--;
+                c = Styles.GetNumber("Dime en que columna quieres posicionar 1, 2, 3", 1, 3); c--;
                 for (int i = 0; i < Board.GetLength(0); i++)
                     hasEmpty = Board[i, c] != 0 ? hasEmpty++ : hasEmpty;
                 if (hasEmpty == 3){
-                    System.Console.WriteLine("¡No hay espacio aquí, busca otra fila!");
+                    Console.WriteLine("¡No hay espacio aquí, busca otra fila!");
                     continue;
                 }
-                System.Console.WriteLine("Dime en que fila quieres posicionar 1, 2, 3");
-                f = int.Parse(System.Console.ReadLine());
-                while (f<1 || f>3)
-                {
-                    System.Console.WriteLine("Escribe un número entero del 1 al 3 (1, 2, 3)");
-                    f = int.Parse(System.Console.ReadLine());
-                }
-                f--;
+                f = Styles.GetNumber("Dime en que fila quieres posicionar 1, 2, 3", 1, 3); f--;
                 if (Board[c, f]!=0)
                 {
-                    System.Console.WriteLine("¡Espacio ocupado!");
+                    Console.WriteLine("¡Espacio ocupado!");
                     continue;
                 }
                 break;
             } while (true);
             Board[c,f] = value;
-            System.Console.WriteLine("Se ha guardado el número: "+ value + "En la columna "+ c + " fila "+ f+ " SATISFACTORIAMENTE.");
+            Console.WriteLine("Se ha guardado el número: "+ value + "En la columna "+ c + " fila "+ f+ " SATISFACTORIAMENTE.");
         }
         public void PrintBoard()
         {
@@ -103,7 +89,7 @@ namespace Matatena
                         count++;
                 }
             }
-            System.Console.WriteLine(NickName + count);
+            Console.WriteLine(NickName + count);
             return count == 9 ? true : false;
         }
     }
