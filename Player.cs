@@ -7,40 +7,7 @@ namespace Matatena
     {
         public string NickName = "User";
         public int[,] Board = new int[3, 3];
-        public void SetPositionOnTheBoard(int value)
-        {
-            int c, f, hasEmpty = 0;
-            do
-            {
-                c = Styles.GetNumber("Dime en que columna quieres posicionar 1, 2, 3", 1, 3); c--;
-                for (int i = 0; i < Board.GetLength(0); i++)
-                    hasEmpty = Board[i, c] != 0 ? hasEmpty++ : hasEmpty;
-                if (hasEmpty == 3){
-                    Console.WriteLine("¡No hay espacio aquí, busca otra fila!");
-                    continue;
-                }
-                f = Styles.GetNumber("Dime en que fila quieres posicionar 1, 2, 3", 1, 3); f--;
-                if (Board[c, f]!=0)
-                {
-                    Console.WriteLine("¡Espacio ocupado!");
-                    continue;
-                }
-                break;
-            } while (true);
-            Board[c,f] = value;
-            Console.WriteLine("Se ha guardado el número: "+ value + "En la columna "+ c + " fila "+ f+ " SATISFACTORIAMENTE.");
-        }
-        public void PrintBoard()
-        {
-            for (int i = 0; i < Board.GetLength(0); i++)
-            {
-                for (int j = 0; j < Board.GetLength(1); j++)
-                {
-                    Console.Write(Board[i, j] + " ");
-                }
-                Console.WriteLine();
-            }
-        }
+
         public double Score()
         {
             /*Score tiene varios parametros al momento de puntear estos son:

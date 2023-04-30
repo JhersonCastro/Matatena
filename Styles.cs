@@ -15,5 +15,16 @@ namespace Matatena
             }
             return rtn;
         }
+        public static void PrintBoard(int[,] Board)
+        {
+            for (int i = 0; i < Board.GetLength(0); i++)
+            {
+                for (int j = 0; j < Board.GetLength(1); j++)
+                {
+                    Console.Write(Board[i, j] + " ");
+                }
+                Console.WriteLine();
+            }
+        }
     }
 }
