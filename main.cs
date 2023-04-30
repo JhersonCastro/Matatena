@@ -23,6 +23,8 @@ namespace Matatena
                 CurrentNumber = die.Next(1,6);
                 System.Console.WriteLine(player1.NickName + " has rolled a value of " + CurrentNumber + " on the dice!");
                 player1.PrintBoard();
+                player1.SetPositionOnTheBoard(CurrentNumber);
+                player1.PrintBoard();
                 System.Threading.Thread.Sleep(5000);
                 Console.Clear();
 
@@ -30,7 +32,7 @@ namespace Matatena
                 CurrentNumber = die.Next(1,6);
                 System.Console.WriteLine(player2.NickName + " has rolled a value of " + CurrentNumber + " on the dice!");
                 player2.PrintBoard(); 
-                               
+
                 System.Threading.Thread.Sleep(5000);
                 Console.Clear();
             } while (!player1.isFull() && !player2.isFull());

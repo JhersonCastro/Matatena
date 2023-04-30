@@ -7,6 +7,43 @@ namespace Matatena
     {
         public string NickName = "User";
         public int[,] Board = new int[3, 3];
+        public void SetPositionOnTheBoard(int value)
+        {
+            int c, f, hasEmpty = 0;
+            do
+            {
+                System.Console.WriteLine("Dime en que columna quieres posicionar 1, 2, 3");
+                c = int.Parse(System.Console.ReadLine());
+                while (c<1 || c>3)
+                {
+                    System.Console.WriteLine("Escribe un número entero del 1 al 3 (1, 2, 3)");
+                    c = int.Parse(System.Console.ReadLine());
+                }
+                c--;
+                for (int i = 0; i < Board.GetLength(0); i++)
+                    hasEmpty = Board[i, c] != 0 ? hasEmpty++ : hasEmpty;
+                if (hasEmpty == 3){
+                    System.Console.WriteLine("¡No hay espacio aquí, busca otra fila!");
+                    continue;
+                }
+                System.Console.WriteLine("Dime en que fila quieres posicionar 1, 2, 3");
+                f = int.Parse(System.Console.ReadLine());
+                while (f<1 || f>3)
+                {
+                    System.Console.WriteLine("Escribe un número entero del 1 al 3 (1, 2, 3)");
+                    f = int.Parse(System.Console.ReadLine());
+                }
+                f--;
+                if (Board[c, f]!=0)
+                {
+                    System.Console.WriteLine("¡Espacio ocupado!");
+                    continue;
+                }
+                break;
+            } while (true);
+            Board[c,f] = value;
+            System.Console.WriteLine("Se ha guardado el número: "+ value + "En la columna "+ c + " fila "+ f+ " SATISFACTORIAMENTE.");
+        }
         public void PrintBoard()
         {
             for (int i = 0; i < Board.GetLength(0); i++)
@@ -45,12 +82,12 @@ namespace Matatena
                     if (pair.Value > 1)
                     {
                         if (pair.Key == 1)
-                            result += pair.Key*pair.Value;
+                            result += pair.Key * pair.Value;
                         else
-                            result += Math.Pow(pair.Key,pair.Value);
+                            result += Math.Pow(pair.Key, pair.Value);
                     }
-                    else if(pair.Value == 1) 
-                        result +=  pair.Key;
+                    else if (pair.Value == 1)
+                        result += pair.Key;
                 }
             }
             return result;
@@ -63,9 +100,7 @@ namespace Matatena
                 for (int j = 0; j < Board.GetLength(1); j++)
                 {
                     if (Board[i, j] >= 1 && Board[i, j] <= 6)
-                    {
                         count++;
-                    }
                 }
             }
             System.Console.WriteLine(NickName + count);
