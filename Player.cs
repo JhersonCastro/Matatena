@@ -56,7 +56,7 @@ namespace Matatena
                         count++;
                 }
             }
-            Console.WriteLine(NickName + count);
+            Console.WriteLine(NickName + " : " + count);
             return count == 9 ? true : false;
         }
     }

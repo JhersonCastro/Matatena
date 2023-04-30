@@ -4,17 +4,19 @@ namespace Matatena
 
     public class Styles
     {
+
         public static double GetNumber(string label, int min, int max)
         {
             double rtn = 0.0;
             Console.WriteLine(label);
             do
             {
+                Console.WriteLine("¡Quedate en los limites!, min:" + min + " max:" + max);
                 while (true)
                 {
                     try
                     {
-                        Console.WriteLine("¡Quedate en los limites!, min:" + min + " max:" + max);
+                        Console.WriteLine(label);
                         rtn = double.Parse(Console.ReadLine());
                         break;
                     }
